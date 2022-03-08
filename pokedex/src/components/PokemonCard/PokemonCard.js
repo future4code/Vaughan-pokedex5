@@ -5,15 +5,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 
 
-export default function PokemonCard() {
+export default function PokemonCard(props) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         alt="green iguana"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
+        height="200"
+        image={props.img}
+        name={props.name}
+        typography
       />
+      <h3>{props.name}</h3>
       <CardActions>
         <Button size="small" variant={"contained"}>Adicionar a Pokedex</Button>
         <Button size="small" variant={"contained"}>Ver detalhes</Button>

@@ -13,7 +13,7 @@ export default function Header() {
         <Toolbar variant="dense">
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
           </IconButton>
-          <Typography variant="h6" color="inherit" component="div">
+          <Typography variant="h6" color="inherit" component="div" sx={{m: 'auto'}}>
             Lista de Pokémons
           </Typography>
         </Toolbar>
