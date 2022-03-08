@@ -1,56 +1,34 @@
 import React from "react"
 import PokemonCard from "../../components/PokemonCard/PokemonCard"
-import axios from 'axios'
-import { urlBase } from "../../constants/urls"
-import {useState, useEffect} from 'react'
+import useRequestData from "../../Hooks/useRequestData";
+import { BaseURL } from "../../constants/urls";
+import { GridCards } from "./Styled";
 
 
 export default function HomePage() {
 
-    const [pokemon, setPokemon] = useState([])
-    const [pokemonSprite, setSprite] = useState([])
+    const [data, dataDetails] = useRequestData([], `${BaseURL}pokemon/`);
     
 
 
-    useEffect(() =>{
-        requestPokemon()
+    const renderPokemons = dataDetails && dataDetails.map((item) => {
+           
+        return (
+            <PokemonCard
+               img={item.sprites.other.dream_world.front_default}
+               name={item.name}
+            />
+        )
 
-    }, [])
-     
-    const requestPokemon = () => {
-        axios.get("https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20").
-        then((response) => {
-            setPokemon(response.data.results)
+    });
 
-            // console.log(response.data.results)
+    console.log(data);
 
-        }).catch((err) => {
-            console.log(err)
-
-        })
-    }
-
-    const requestSprite = (name) => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon-form/${name}/`).
-        then((response) => {
-            setSprite(response.data.sprites)
-            console.log(response.data.sprites)
-            
-        }).catch((err) =>{
-            console.log(err)
-        })
-    }
- 
-    
-  
     return (
         <div>
-            <h1>HomePage</h1>
-            <PokemonCard/>
-            {pokemon && pokemon.map((item) =>{
-                return <p>{requestSprite(item.name)}</p>
-
-            })}
+            <GridCards>
+            {renderPokemons}
+            </GridCards>
        </div>
     )
 }
