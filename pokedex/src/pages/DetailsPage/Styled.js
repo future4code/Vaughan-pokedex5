@@ -7,6 +7,7 @@ export const DivCenter = styled.div`
   align-items: center;
   margin: 2% auto;
   width: 80%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
   img{
     width: 200px;
@@ -28,6 +29,7 @@ export const DivPower = styled.div`
   flex-direction: column;
   box-shadow: 0px 2px 5px black;
   padding: 0 5%;
+  border-radius: 10px;
 `;
 
 export const DivAttack = styled.div`
@@ -35,6 +37,7 @@ export const DivAttack = styled.div`
   flex-direction: column;
   box-shadow: 0px 2px 5px black;
   padding: 0 5%;
+  border-radius: 10px;
   
 `;
 
@@ -45,4 +48,5 @@ export const DivType = styled.div`
   align-items: center;
   box-shadow: 0px 2px 5px black;
   width: 30%;
+  border-radius: 10px;
 `;

@@ -9,12 +9,13 @@ export default function DetailsPage(){
     //Essa função pega o id utilizado no card
     const param = useParams();
     //Aqui estamos pegando estados que vêm do componente global
-    const {dataDetails, currentPage, setCurrentPage} = useContext(GlobalContext);
+    const {dataDetails, currentPage, setCurrentPage, setPage} = useContext(GlobalContext);
     
 
     console.log(dataDetails)
     useEffect(() =>{
         setCurrentPage('Detalhes')
+        setPage('Voltar')
 
     }, [])
 
