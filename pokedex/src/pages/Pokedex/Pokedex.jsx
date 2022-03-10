@@ -14,6 +14,7 @@ export default function Pokedex() {
 
     useEffect(() =>{
         setCurrentPage('Pokedex')
+        setPage('Voltar para a lista')
 
     }, [])
 
@@ -40,7 +41,6 @@ export default function Pokedex() {
 
     return (
         <GridPokedex>
-        <h1>Pokedex</h1>
         {renderPokedex.length === 0 ? <h1>Sua Pokedex Esta Vazia</h1> : renderPokedex}
         </GridPokedex>
 

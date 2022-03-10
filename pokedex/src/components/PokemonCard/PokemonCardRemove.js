@@ -1,28 +1,9 @@
 import * as React from 'react';
-import CardActions from '@mui/material/CardActions';
-import Button from '@mui/material/Button';
-import styled from 'styled-components';
 import { goToDetailsPage } from '../../Router/coordinator';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Global/GlobalStateContext';
+import { AlignText, Button, CardContainer, CardFooter, CardMedia } from './styled';
 
-const CardContainer = styled.div`
-  border: 1px solid #66a3ff;
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px black;
-  width: 300px;
-  /* margin-bottom: 10px;
-  margin-left: 10px; */
-`;
-
-const CardMedia = styled.img`
-width: 100%;
-height: 250px;
-`;
-
-const AlignText = styled.h3`
-text-align: center;
-`
 
 export default function PokemonCardRemove(props) {
 
@@ -57,10 +38,10 @@ export default function PokemonCardRemove(props) {
         src={props.img}
         />
       <AlignText>{props.name}</AlignText>
-      <CardActions>
-        <Button size="small" variant={"contained"} onClick={() => remPokedex(props.id)}>Remover da Pokedex</Button>
-        <Button size="small" variant={"contained"} onClick={() => goDetails(props.id)}>Ver detalhes</Button>
-      </CardActions>
+      <CardFooter>
+        <Button onClick={() => remPokedex(props.id)}>Remover da Pokedex</Button>
+        <Button onClick={() => goDetails(props.id)}>Ver detalhes</Button>
+      </CardFooter>
     </CardContainer>
   );
 }

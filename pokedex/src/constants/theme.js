@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/system';
-import { primaryColor } from './colors';
+import { primaryColor, secondaryColor } from './colors';
 
 
 export const theme = createTheme({
@@ -8,7 +8,7 @@ export const theme = createTheme({
       main: primaryColor,
     },
     secondary: {
-      main: primaryColor
+      main: secondaryColor,
     },
   },
 });

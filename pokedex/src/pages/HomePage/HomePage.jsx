@@ -7,10 +7,11 @@ import { GlobalContext } from "../../Global/GlobalStateContext";
 
 export default function HomePage() {
 
-    const {pokedexCart, dataDetails, currentPage, setCurrentPage} = useContext(GlobalContext);
+    const {pokedexCart, dataDetails, currentPage, setCurrentPage, setPage} = useContext(GlobalContext);
 
     useEffect(() =>{
         setCurrentPage('Lista de Pokémons')
+        setPage('Pokedex')
 
     }, [])
     

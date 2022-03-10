@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
 export const GridCards = styled.div`
-  display: grid ;
-  /* margin: 5% 10%; */
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 25px;
   width: 100%;
-  margin: auto;
   align-self: center;
+  justify-content: center;
+  margin-top: 20px;
+
 
 `
