@@ -24,7 +24,7 @@ const AlignText = styled.h3`
 text-align: center;
 `
 
-export default function PokemonCard(props) {
+export default function PokemonCardRemove(props) {
 
   const {page, dataDetails, setPage, pokedexCart, setPokedexCart, buttonAddRem} = React.useContext(GlobalContext);
 
@@ -38,16 +38,14 @@ export default function PokemonCard(props) {
 
   }
 
-  const addPokedex = (id) => {
-       for(let i = 0; i < dataDetails.length; i++){
-         if(dataDetails[i].id === id){
+  const remPokedex = (id) => {
 
-          let newPokedex = [...pokedexCart, dataDetails[i]]
+      let newPokedex = pokedexCart.filter((item) => {
+          return item.id !== id
+      })
 
-           setPokedexCart(newPokedex);
+      setPokedexCart(newPokedex);
 
-         }
-       }
   }
 
 
@@ -60,7 +58,7 @@ export default function PokemonCard(props) {
         />
       <AlignText>{props.name}</AlignText>
       <CardActions>
-        <Button size="small" variant={"contained"} onClick={() => addPokedex(props.id)}>Adicionar a Pokedex</Button>
+        <Button size="small" variant={"contained"} onClick={() => remPokedex(props.id)}>Remover da Pokedex</Button>
         <Button size="small" variant={"contained"} onClick={() => goDetails(props.id)}>Ver detalhes</Button>
       </CardActions>
     </CardContainer>
