@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PokemonCardRemove from "../../components/PokemonCard/PokemonCardRemove";
 import { GlobalContext } from "../../Global/GlobalStateContext";
@@ -8,9 +8,14 @@ import { GridPokedex } from "./Styled";
 
 export default function Pokedex() {
 
-    const {page, setPage, pokedexCart} = React.useContext(GlobalContext);
+    const {page, setPage, pokedexCart, currentPage,setCurrentPage} = React.useContext(GlobalContext);
 
     const navigate = useNavigate();
+
+    useEffect(() =>{
+        setCurrentPage('Pokedex')
+
+    }, [])
 
     const goDetails = () => {
     

@@ -11,7 +11,7 @@ import { GlobalContext } from '../../Global/GlobalStateContext';
 export default function Header() {
 
 
-  const {page, setPage} = React.useContext(GlobalContext);
+  const {page, setPage, currentPage} = React.useContext(GlobalContext);
   
   // const { globalData } = React.useContext(GlobalContext);
 
@@ -44,7 +44,7 @@ export default function Header() {
         <Toolbar variant="dense">
           <button onClick={() => changeButton()}>{page}</button>
           <Typography variant="h6" color="inherit" component="div" sx={{ m: 'auto' }}>
-            Lista de Pokémons
+            {currentPage}
           </Typography>
         </Toolbar>
       </AppBar>
