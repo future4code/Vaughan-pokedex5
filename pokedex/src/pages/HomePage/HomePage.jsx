@@ -1,28 +1,27 @@
-import React from "react"
+import React, { useContext } from "react"
 import PokemonCard from "../../components/PokemonCard/PokemonCard"
+import { GridCards } from "./Styled";
+import { GlobalContext } from "../../Global/GlobalStateContext";
 import useRequestData from "../../Hooks/useRequestData";
 import { BaseURL } from "../../constants/urls";
-import { GridCards } from "./Styled";
 
 
 export default function HomePage() {
 
     const [data, dataDetails] = useRequestData([], `${BaseURL}pokemon/`);
     
-
-
     const renderPokemons = dataDetails && dataDetails.map((item) => {
            
         return (
             <PokemonCard
+               key={crypto.randomUUID()}
                img={item.sprites.other.dream_world.front_default}
                name={item.name}
+               id={item.id}
             />
         )
 
     });
-
-    console.log(data);
 
     return (
         <div>
