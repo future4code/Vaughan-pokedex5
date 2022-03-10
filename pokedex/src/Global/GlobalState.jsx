@@ -8,9 +8,10 @@ export const GlobalState = (props) => {
 
   const [data, dataDetails] = useRequestData([], `${BaseURL}pokemon/`);
   const [page, setPage] = useState("Pokedex");
+  const [pokedexCart, setPokedexCart] = useState([]);
 
 
-  const globalData = {page, setPage, data, dataDetails}
+  const globalData = {page, setPage, data, dataDetails, pokedexCart, setPokedexCart}
 
   return (
     <GlobalContext.Provider value={globalData}>

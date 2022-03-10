@@ -7,6 +7,7 @@ export const DivCenter = styled.div`
   align-items: center;
   margin: 2% auto;
   width: 80%;
+
 `;
 
 export const DivSpecies = styled.div`
