@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import { GlobalContext } from "../../Global/GlobalStateContext";
 import { DivCenter, DivPower, DivAttack, DivType, DivSpecies} from "./Styled";
@@ -6,13 +6,22 @@ import { DivCenter, DivPower, DivAttack, DivType, DivSpecies} from "./Styled";
 
 export default function DetailsPage(){
     
+    //Essa função pega o id utilizado no card
     const param = useParams();
-    const {dataDetails} = useContext(GlobalContext);
+    //Aqui estamos pegando estados que vêm do componente global
+    const {dataDetails, currentPage, setCurrentPage} = useContext(GlobalContext);
+    
+
+    console.log(dataDetails)
+    useEffect(() =>{
+        setCurrentPage('Detalhes')
+
+    }, [])
 
     const detailPokemon = dataDetails && dataDetails.filter((item) => {
 
         return (item.id === parseInt(param.id))
-
+      
     })
     return(
         <DivCenter>
@@ -31,14 +40,15 @@ export default function DetailsPage(){
                 <p>Defesa Especial : {detailPokemon[0].stats[4].base_stat}</p>
                 <p>Velocidade : {detailPokemon[0].stats[5].base_stat}</p>
             </DivPower>     
-            <img src={detailPokemon[0].sprites.other.home.front_default}/>
+            <img src={detailPokemon[0].sprites.back_default}/>
+            <img src={detailPokemon[0].sprites.front_default}/>
             <DivAttack>
                <h2>Principais Ataques</h2>
-               <p>{detailPokemon[0].moves[0].move.name}</p>
-               <p>{detailPokemon[0].moves[1].move.name}</p>
-               <p>{detailPokemon[0].moves[2].move.name}</p>
-               <p>{detailPokemon[0].moves[3].move.name}</p>
-               <p>{detailPokemon[0].moves[4].move.name}</p>
+               <p>{detailPokemon[0].moves[0] ? detailPokemon[0].moves[0].move.name: null}</p>
+               <p>{detailPokemon[0].moves[1] ? detailPokemon[0].moves[1].move.name: null}</p>
+               <p>{detailPokemon[0].moves[2] ? detailPokemon[0].moves[2].move.name: null}</p>
+               <p>{ detailPokemon[0].moves[3] ? detailPokemon[0].moves[3].move.name: null}</p>
+               <p>{detailPokemon[0].moves[4] ? detailPokemon[0].moves[4].move.name: null }</p>
             </DivAttack>
         </DivSpecies>
         </DivCenter>

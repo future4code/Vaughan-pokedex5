@@ -1,12 +1,19 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import PokemonCard from "../../components/PokemonCard/PokemonCard"
 import { GridCards } from "./Styled";
 import { GlobalContext } from "../../Global/GlobalStateContext";
 
 
+
 export default function HomePage() {
 
-    const {pokedexCart, dataDetails} = useContext(GlobalContext);
+    const {pokedexCart, dataDetails, currentPage, setCurrentPage} = useContext(GlobalContext);
+
+    useEffect(() =>{
+        setCurrentPage('Lista de Pokémons')
+
+    }, [])
+    
 
     let ids = pokedexCart && pokedexCart.map((item) =>{return item.id});
 
@@ -28,10 +35,10 @@ export default function HomePage() {
     });
 
     return (
-        <div>
+        
             <GridCards>
             {renderPokemons}
             </GridCards>
-       </div>
+      
     )
 }

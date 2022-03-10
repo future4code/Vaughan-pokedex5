@@ -6,22 +6,49 @@ import { goToDetailsPage } from '../../Router/coordinator';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Global/GlobalStateContext';
 
+
+const CardAction = styled.div`
+ width: 100%;
+ height: 100px;
+
+
+`
 const CardContainer = styled.div`
   border: 1px solid #66a3ff;
   border-radius: 10px;
   box-shadow: 0px 2px 10px black;
-  width: 300px;
+  width: 250px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  
+  
   /* margin-bottom: 10px;
   margin-left: 10px; */
 `;
 
+const ButtonStyled = styled.div`
+flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+ 
+
+`
+
 const CardMedia = styled.img`
-width: 100%;
-height: 250px;
+width: 80%;
+height: 200px;
 `;
 
 const AlignText = styled.h3`
 text-align: center;
+font-weight: bold;
+font-size: 1em;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 `
 
 export default function PokemonCard(props) {
@@ -59,10 +86,10 @@ export default function PokemonCard(props) {
         src={props.img}
         />
       <AlignText>{props.name}</AlignText>
-      <CardActions>
+      <CardAction>
         <Button size="small" variant={"contained"} onClick={() => addPokedex(props.id)}>Adicionar a Pokedex</Button>
         <Button size="small" variant={"contained"} onClick={() => goDetails(props.id)}>Ver detalhes</Button>
-      </CardActions>
+      </CardAction>
     </CardContainer>
   );
 }
