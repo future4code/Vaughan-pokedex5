@@ -1,30 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import PokemonCardRemove from "../../components/PokemonCard/PokemonCardRemove";
 import { GlobalContext } from "../../Global/GlobalStateContext";
-import { goToDetailsPage } from "../../Router/coordinator";
 import { GridPokedex } from "./Styled";
+import emptyPoke from '../../img/pokeEmpty.png'
 
 
 export default function Pokedex() {
 
-    const {page, setPage, pokedexCart, currentPage,setCurrentPage} = React.useContext(GlobalContext);
-
-    const navigate = useNavigate();
+    const {setPage, pokedexCart,setCurrentPage, setButtonOfDetails} = React.useContext(GlobalContext);
 
     useEffect(() =>{
         setCurrentPage('Pokedex')
         setPage('Voltar para a lista')
-
+        setButtonOfDetails(false)
     }, [])
-
-    const goDetails = () => {
-    
-        setPage('Voltar')
-        localStorage.setItem('page', 'pokedex');
-        goToDetailsPage(navigate)
-    
-      }
 
 
       const renderPokedex = pokedexCart && pokedexCart.map((item) => {
@@ -41,7 +30,7 @@ export default function Pokedex() {
 
     return (
         <GridPokedex>
-        {renderPokedex.length === 0 ? <h1>Sua Pokedex Esta Vazia</h1> : renderPokedex}
+        {renderPokedex.length === 0 ? <p>Sua Pokedex Esta Vazia <img src={emptyPoke}/></p> : renderPokedex}
         </GridPokedex>
 
     )

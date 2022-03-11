@@ -7,14 +7,13 @@ import { AlignText, Button, CardContainer, CardFooter, CardMedia } from './style
 
 export default function PokemonCardRemove(props) {
 
-  const {page, dataDetails, setPage, pokedexCart, setPokedexCart, buttonAddRem} = React.useContext(GlobalContext);
+  const {setPage, pokedexCart, setPokedexCart } = React.useContext(GlobalContext);
 
   const navigate = useNavigate();
 
   const goDetails = (id) => {
     
     setPage('Voltar')
-    localStorage.setItem('page', 'home');
     goToDetailsPage(navigate, id)
 
   }
