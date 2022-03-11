@@ -9,6 +9,7 @@ export const GridPokedex = styled.div`
   align-self: center;
   margin-top: 20px;
 
+
   p{
     font-size: 2em;
     font-weight: bold;
@@ -18,6 +19,19 @@ export const GridPokedex = styled.div`
 
     img{
       width: 800px;
+    }
+  }
+  @media(max-width: 600px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p{
+      justify-content: center;
+      margin-left: 10px;
+      img{
+      width: 100%;
+      margin-top: 100px;
+    }
     }
   }
 `

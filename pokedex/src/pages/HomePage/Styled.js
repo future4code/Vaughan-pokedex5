@@ -8,6 +8,8 @@ export const GridCards = styled.div`
   align-self: center;
   justify-content: center;
   margin: 20px 0;
-
+@media(max-width: 600px){
+  grid-template-columns: 1fr;
+}
 
 `

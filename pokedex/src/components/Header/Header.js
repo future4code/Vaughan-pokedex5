@@ -5,7 +5,7 @@ import { Toolbar } from '@mui/material';
 import { Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Global/GlobalStateContext';
-import { HeaderButton } from './styled';
+import { HeaderButton, HeaderButton2 } from './styled';
 import { changeButton, removeAddPokedex } from './requests';
 
 export default function Header() {
@@ -26,7 +26,7 @@ export default function Header() {
             {currentPage}
           </Typography>
           {/* //Verificando se o buttonOfDetails está true, se sim mostra o botão e se não, não mostra */}
-          {buttonOfDetails ? <HeaderButton color='inherit' onClick={() => removeAddPokedex(idDetails, navigate, pokedexCart, setPokedexCart, dataDetails)}>Adicionar/Remover da Pokedex</HeaderButton> : null}
+        {buttonOfDetails ? <HeaderButton2 onClick={() => removeAddPokedex(idDetails, navigate, pokedexCart, setPokedexCart, dataDetails)}>Adicionar/Remover da Pokedex</HeaderButton2> : null}
           
         </Toolbar>
       </AppBar>

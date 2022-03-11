@@ -20,6 +20,10 @@ export const DivSpecies = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  @media(max-width: 600px){
+    display: flex;
+    flex-direction: column;
+  }
   
  
 `;
@@ -30,6 +34,10 @@ export const DivPower = styled.div`
   box-shadow: 0px 2px 5px black;
   padding: 0 5%;
   border-radius: 10px;
+  @media(max-width: 600px){
+    width: 80%;
+    margin: 5% 0;
+  }
 `;
 
 export const DivAttack = styled.div`
@@ -38,6 +46,11 @@ export const DivAttack = styled.div`
   box-shadow: 0px 2px 5px black;
   padding: 0 5%;
   border-radius: 10px;
+  @media(max-width: 600px){
+    width: 80%;
+    margin: 5% 0;
+  }
+  
   
 `;
 
@@ -49,4 +62,8 @@ export const DivType = styled.div`
   box-shadow: 0px 2px 5px black;
   width: 30%;
   border-radius: 10px;
+  @media(max-width: 600px){
+    width: 80%;
+    margin: 5% 0;
+  }
 `;
