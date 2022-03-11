@@ -1,19 +1,16 @@
-import { DivAttack } from "../Styled";
+import { DivType } from "../Styled";
 
 
 
-export default function DivTypeComp(props){
+export default function DivTypeComp(props) {
 
     const detailPokemon = props.detailPokemon;
 
-    return(
-        <DivAttack>
-               <h2>Principais Ataques</h2>
-               <p>{detailPokemon[0].moves[0] ? detailPokemon[0].moves[0].move.name: null}</p>
-               <p>{detailPokemon[0].moves[1] ? detailPokemon[0].moves[1].move.name: null}</p>
-               <p>{detailPokemon[0].moves[2] ? detailPokemon[0].moves[2].move.name: null}</p>
-               <p>{ detailPokemon[0].moves[3] ? detailPokemon[0].moves[3].move.name: null}</p>
-               <p>{detailPokemon[0].moves[4] ? detailPokemon[0].moves[4].move.name: null }</p>
-        </DivAttack>
+    return (
+        <DivType>
+            <h2>Especie</h2>
+            <p>{detailPokemon[0].types[0] ? detailPokemon[0].types[0].type.name : null}</p>
+            <p>{detailPokemon[0].types[1] ? detailPokemon[0].types[1].type.name : null}</p>
+        </DivType>
     )
 }
