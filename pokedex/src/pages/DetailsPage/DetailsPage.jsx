@@ -9,7 +9,8 @@ import { DivCenter, DivSpecies } from "./Styled";
 export default function DetailsPage() {
   //Essa função pega o id utilizado no card
   const param = useParams();
-  //Aqui estamos pegando estados que vêm do componente global
+
+  //Aqui estamos pegando todos os estados que vêm do componente global
   const {
     dataDetails,
     setCurrentPage,
@@ -18,13 +19,15 @@ export default function DetailsPage() {
     setIdDetails,
   } = useContext(GlobalContext);
 
+  //O currentPage seta a página Atual e o setPage o botão de volta
   useEffect(() => {
     setCurrentPage("Detalhes");
     setPage("Voltar");
     setButtonOfDetails(true);
-    setIdDetails(param.id);
+    setIdDetails(param.id);   //É o id do pokémon
   }, []);
 
+  //Ele retorna as funções completas do pokémon a partir desse filter que pega o id
   const detailPokemon =
     dataDetails &&
     dataDetails.filter((item) => {
@@ -36,7 +39,8 @@ export default function DetailsPage() {
       <DivTypeComp detailPokemon={detailPokemon} />
       <DivSpecies>
         <DivPowerComp detailPokemon={detailPokemon} />
-        <img src={detailPokemon[0].sprites.back_default} />
+        {/* //Imagens dos pokémons de costas e frente */}
+        <img src={detailPokemon[0].sprites.back_default} /> 
         <img src={detailPokemon[0].sprites.front_default} />
         <DivAttackComp detailPokemon={detailPokemon} />
       </DivSpecies>

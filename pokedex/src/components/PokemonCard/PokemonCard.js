@@ -19,11 +19,13 @@ export default function PokemonCard(props) {
   }
 
   const addPokedex = (id) => {
+    //O for pega todas as informações do id do card clicado, assim sendo igual ele joga na variavél da pokédex
     for (let i = 0; i < dataDetails.length; i++) {
       if (dataDetails[i].id === id) {
 
+        //Fazemos uma cópia aqui para adicionar um novo pokémons
         let newPokedex = [...pokedexCart, dataDetails[i]]
-
+        //O set adiciona o novo array com os pokémons atualizados
         setPokedexCart(newPokedex);
 
       }
@@ -32,6 +34,7 @@ export default function PokemonCard(props) {
 
 
   return (
+    //Imagem do card do pokémon
     <CardContainer>
       <CardMedia
         component="img"
@@ -40,6 +43,7 @@ export default function PokemonCard(props) {
       />
       <AlignText>{props.name}</AlignText>
       <CardFooter>
+        {/* //Ele ao ser clicado verifica o id do pokémon */}
         <Button onClick={() => addPokedex(props.id)}>Adicionar a pokedex</Button>
         <Button onClick={() => goDetails(props.id)}>Ver detalhes</Button>
       </CardFooter>

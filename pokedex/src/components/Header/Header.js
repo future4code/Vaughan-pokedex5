@@ -10,9 +10,10 @@ import { changeButton, removeAddPokedex } from './requests';
 
 export default function Header() {
 
-
+//Pegando alguns estados globais para serem usados
   const {page, setPage, currentPage, buttonOfDetails, idDetails, pokedexCart, setPokedexCart, dataDetails} = React.useContext(GlobalContext);
 
+  //O navigate serve para redirecionar as páginas
   const navigate = useNavigate();
 
 
@@ -24,6 +25,7 @@ export default function Header() {
           <Typography variant="h6" color="inherit" component="div" sx={{ m: 'auto' }}>
             {currentPage}
           </Typography>
+          {/* //Verificando se o buttonOfDetails está true, se sim mostra o botão e se não, não mostra */}
           {buttonOfDetails ? <HeaderButton color='inherit' onClick={() => removeAddPokedex(idDetails, navigate, pokedexCart, setPokedexCart, dataDetails)}>Adicionar/Remover da Pokedex</HeaderButton> : null}
           
         </Toolbar>

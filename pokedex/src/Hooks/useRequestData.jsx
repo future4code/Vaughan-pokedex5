@@ -1,17 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+//Paramêtros da requisição
 const useRequestData = (initialData, url) => {
 
   const [data, setData] = useState(initialData);
   const [dataDetails, setDataDetails] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);  
   const [error, setError] = useState("");
 
+  //Ele já mostra logo de cara a lista de pokémons
   useEffect(() => {
     getData(url);
   }, [url]);
 
+  //O async serve para mostrar que aqui será uma função assíncrona
   const getData = async (url) => {
     setIsLoading(true);
 
@@ -33,8 +36,9 @@ const useRequestData = (initialData, url) => {
       const getPokemon = async () => {
         try {
           const response = await axios.get(
-            `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+            `https://pokeapi.co/api/v2/pokemon/${pokemon.name}` 
           );
+          //Está adicionando os pokémons até o valor 20 dentro da pokemonList
           pokemonsList.push(response.data);
           if (pokemonsList.length === 20) {
             setDataDetails(pokemonsList);

@@ -6,6 +6,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import Pokedex from "../pages/Pokedex/Pokedex";
 
 export default function Router() {
+  //Página de transição de páginas, todas as que utilizaremos que são 4
   return (
     <BrowserRouter>
       <Header/>
