@@ -9,8 +9,15 @@ export const GridPokedex = styled.div`
   align-self: center;
   margin-top: 20px;
 
-  h1{
+  p{
+    font-size: 2em;
+    font-weight: bold;
     grid-area: 1/3;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: red;
+
+    img{
+      width: 800px;
+    }
   }
 `

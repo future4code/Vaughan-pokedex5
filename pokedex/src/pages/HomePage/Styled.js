@@ -7,7 +7,7 @@ export const GridCards = styled.div`
   width: 100%;
   align-self: center;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px 0;
 
 
 `

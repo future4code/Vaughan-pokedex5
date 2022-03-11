@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import { goToDetailsPage } from '../../Router/coordinator';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Global/GlobalStateContext';
@@ -8,15 +7,14 @@ import { AlignText, Button, CardContainer, CardFooter, CardMedia } from './style
 
 export default function PokemonCard(props) {
 
-  const { page, dataDetails, setPage, pokedexCart, setPokedexCart, buttonAddRem } = React.useContext(GlobalContext);
+  const {dataDetails, setPage, pokedexCart, setPokedexCart} = React.useContext(GlobalContext);
 
   const navigate = useNavigate();
 
   const goDetails = (id) => {
 
     setPage('Voltar')
-    localStorage.setItem('page', 'home');
-    goToDetailsPage(navigate, id)
+    goToDetailsPage(navigate, id) 
 
   }
 
